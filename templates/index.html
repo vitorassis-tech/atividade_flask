@@ -1,0 +1,53 @@
+{% extends "_base.html" %}
+
+
+{% block title %}
+Início
+{% endblock %}
+
+
+{% block content %}
+
+<h2>Conteúdos cadastrados</h2>
+
+<p>
+    Abaixo estão os conteúdos armazenados no banco de dados SQLite.
+</p>
+
+
+{% if contents %}
+
+    {% for content in contents %}
+
+        <article>
+
+            <h3>
+                <a href="{{ url_for('view', c_id=content['c_id']) }}">
+                    {{ content["c_title"] }}
+                </a>
+            </h3>
+
+            <p>
+                {{ content["c_text"] }}
+            </p>
+
+            <small>
+                Código: {{ content["c_id"] }}
+                |
+                Criado em: {{ content["c_created_at"] }}
+            </small>
+
+            <hr>
+
+        </article>
+
+    {% endfor %}
+
+{% else %}
+
+    <p>Nenhum conteúdo encontrado.</p>
+
+{% endif %}
+
+
+{% endblock %}

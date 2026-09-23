@@ -1,0 +1,66 @@
+{% extends "_base.html" %}
+
+
+{% block title %}
+{{ content["c_title"] }}
+{% endblock %}
+
+
+{% block content %}
+
+<article>
+
+    <h2>{{ content["c_title"] }}</h2>
+
+    <p>
+        {{ content["c_text"] }}
+    </p>
+
+    <p>
+        <small>
+            Código: {{ content["c_id"] }}
+            |
+            Criado em: {{ content["c_created_at"] }}
+        </small>
+    </p>
+
+</article>
+
+
+<hr>
+
+
+<!-- Botão para editar o conteúdo -->
+
+<p>
+    <a href="{{ url_for('edit', c_id=content['c_id']) }}">
+        ✏️ Editar conteúdo
+    </a>
+</p>
+
+
+<!-- Botão para excluir o conteúdo -->
+
+<form
+    action="{{ url_for('delete', c_id=content['c_id']) }}"
+    method="POST"
+    onsubmit="return confirm('Tem certeza que deseja excluir este conteúdo?');"
+>
+
+    <button type="submit">
+        🗑️ Excluir conteúdo
+    </button>
+
+</form>
+
+
+<!-- Voltar para a página inicial -->
+
+<p>
+    <a href="{{ url_for('index') }}">
+        ← Voltar para o início
+    </a>
+</p>
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "_base.html" %}
+
+
+{% block title %}
+Editar conteúdo
+{% endblock %}
+
+
+{% block content %}
+
+<h2>Editar conteúdo</h2>
+
+<p>
+    Altere as informações abaixo e clique em salvar.
+</p>
+
+
+<form method="POST">
+
+    <p>
+        <label for="title">
+            <strong>Título:</strong>
+        </label>
+        <br>
+
+        <input
+            type="text"
+            id="title"
+            name="title"
+            value="{{ content['c_title'] }}"
+            required
+        >
+    </p>
+
+
+    <p>
+        <label for="text">
+            <strong>Conteúdo:</strong>
+        </label>
+        <br>
+
+        <textarea
+            id="text"
+            name="text"
+            rows="6"
+            required
+        >{{ content["c_text"] }}</textarea>
+    </p>
+
+
+    <p>
+        <button type="submit">
+            Salvar alterações
+        </button>
+    </p>
+
+</form>
+
+
+<p>
+    <a href="{{ url_for('view', c_id=content['c_id']) }}">
+        ← Voltar para o conteúdo
+    </a>
+</p>
+
+{% endblock %}

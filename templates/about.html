@@ -1,0 +1,80 @@
+{% extends "_base.html" %}
+
+
+{% block title %}
+Sobre
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Título da página -->
+<h2>Sobre o projeto</h2>
+
+<p>
+    Este projeto foi desenvolvido como atividade prática
+    utilizando Python, Flask e SQLite.
+</p>
+
+
+<!-- Objetivo do projeto -->
+<h3>Objetivo</h3>
+
+<p>
+    O objetivo deste projeto é aplicar os conhecimentos
+    adquiridos durante as aulas, desenvolvendo uma aplicação
+    web capaz de cadastrar, visualizar, editar e excluir
+    conteúdos.
+</p>
+
+
+<!-- Tecnologias utilizadas -->
+<h3>Tecnologias utilizadas</h3>
+
+<ul>
+    <li>Python</li>
+    <li>Flask</li>
+    <li>SQLite</li>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>Jinja</li>
+</ul>
+
+
+<!-- Funcionalidades do sistema -->
+<h3>Funcionalidades</h3>
+
+<ul>
+    <li>Listagem de conteúdos cadastrados</li>
+    <li>Visualização individual de conteúdos</li>
+    <li>Cadastro de novos conteúdos</li>
+    <li>Edição de conteúdos</li>
+    <li>Exclusão lógica de conteúdos</li>
+</ul>
+
+
+<!-- Informações da atividade -->
+<h3>Sobre a atividade</h3>
+
+<p>
+    A aplicação utiliza o framework Flask para gerenciar
+    as rotas e páginas do sistema e o SQLite para armazenar
+    os conteúdos cadastrados.
+</p>
+
+<p>
+    As páginas HTML utilizam templates com Jinja,
+    permitindo a integração entre os dados processados
+    pelo Python e o conteúdo exibido no navegador.
+</p>
+
+
+<!-- Link para voltar -->
+<p>
+    <a href="{{ url_for('index') }}">
+        ← Voltar para o início
+    </a>
+</p>
+
+{% endblock %}
