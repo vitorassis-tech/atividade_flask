@@ -2,46 +2,123 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>{% block title %}Meu Flask{% endblock %}</title>
+    <meta
+        name="description"
+        content="Projeto desenvolvido com Python, Flask e SQLite."
+    >
+
+    <title>
+        {% block title %}{% endblock %} | Projeto Flask
+    </title>
+
+    <!-- CSS principal -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
 </head>
+
 
 <body>
 
-    <header>
-        <h1>Meu Flask</h1>
+    <!-- ============================================
+         CABEÇALHO
+    ============================================= -->
 
-    <nav>
-    <a href="{{ url_for('index') }}">Início</a>
-    |
-    <a href="{{ url_for('new') }}">Novo conteúdo</a>
-    |
-    <a href="{{ url_for('about') }}">Sobre</a>
-    |
-    <a href="{{ url_for('contacts') }}">Contatos</a>
-    </nav>
+    <header class="site-header">
 
-        <hr>
+        <div class="header-container">
+
+            <div class="brand">
+
+                <a href="{{ url_for('index') }}">
+                    <span class="brand-icon">&lt;/&gt;</span>
+
+                    <span class="brand-text">
+                        Projeto Flask
+                    </span>
+                </a>
+
+            </div>
+
+
+            <!-- Menu principal -->
+
+            <nav class="menu">
+
+                <a href="{{ url_for('index') }}">
+                    Início
+                </a>
+
+                <a href="{{ url_for('new') }}">
+                    Novo conteúdo
+                </a>
+
+                <a href="{{ url_for('about') }}">
+                    Sobre
+                </a>
+
+                <a href="{{ url_for('contacts') }}">
+                    Contatos
+                </a>
+
+            </nav>
+
+        </div>
+
     </header>
 
 
-    <main>
+    <!-- ============================================
+         CONTEÚDO PRINCIPAL
+    ============================================= -->
+
+    <main class="main-container">
+
         {% block content %}
         {% endblock %}
+
     </main>
 
 
-  <footer>
-    <hr>
-    <p>Atividade desenvolvida com Python e Flask.</p>
-</footer>
+    <!-- ============================================
+         RODAPÉ
+    ============================================= -->
 
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <p>
+                Projeto desenvolvido com
+                <strong>Python</strong>,
+                <strong>Flask</strong> e
+                <strong>SQLite</strong>.
+            </p>
+
+            <p class="footer-small">
+                Atividade prática de desenvolvimento web.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript principal -->
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}">
+    </script>
 
 </body>
 

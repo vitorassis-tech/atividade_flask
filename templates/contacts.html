@@ -8,18 +8,80 @@ Contatos
 
 {% block content %}
 
-<h2>Entre em contato</h2>
+<!-- Cabeçalho da página -->
+<section class="page-header">
 
-<p>
-    Utilize os canais abaixo para entrar em contato conosco.
-</p>
+    <span class="page-label">
+        CONTATOS
+    </span>
 
-<p>
-    <strong>E-mail:</strong> contato@meuflask.com
-</p>
+    <h2>Entre em contato</h2>
 
-<p>
-    <strong>Telefone:</strong> (21) 99999-9999
-</p>
+    <p>
+        Informações de contato relacionadas ao projeto.
+    </p>
+
+</section>
+
+
+<!-- Card de contato -->
+<section class="info-card">
+
+    <h3>Informações</h3>
+
+    <p>
+        Este projeto foi desenvolvido para fins acadêmicos
+        e de aprendizado em desenvolvimento web.
+    </p>
+
+    <hr>
+
+
+    <p>
+        <strong>Autor:</strong>
+        Vitor Assis
+    </p>
+
+    <p>
+        <strong>E-mail:</strong>
+        vitorazziz@gmail.com
+    </p>
+
+    <p>
+        <strong>GitHub:</strong>
+
+        <a
+            href="https://github.com/vitorassis-tech"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            vitorassis-tech
+        </a>
+    </p>
+
+
+    <hr>
+
+
+    <h3>Projeto</h3>
+
+    <p>
+        Desenvolvido com Python, Flask, SQLite,
+        HTML, CSS e JavaScript.
+    </p>
+
+</section>
+
+
+<div class="form-actions">
+
+    <a
+        href="{{ url_for('index') }}"
+        class="btn-secondary"
+    >
+        ← Voltar para o início
+    </a>
+
+</div>
 
 {% endblock %}

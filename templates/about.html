@@ -8,73 +8,91 @@ Sobre
 
 {% block content %}
 
-<!-- Título da página -->
-<h2>Sobre o projeto</h2>
+<!-- Cabeçalho da página -->
+<section class="page-header">
 
-<p>
-    Este projeto foi desenvolvido como atividade prática
-    utilizando Python, Flask e SQLite.
-</p>
+    <span class="page-label">
+        SOBRE O PROJETO
+    </span>
 
+    <h2>Atividade Flask</h2>
 
-<!-- Objetivo do projeto -->
-<h3>Objetivo</h3>
+    <p>
+        Conheça as tecnologias e os objetivos utilizados
+        no desenvolvimento deste projeto.
+    </p>
 
-<p>
-    O objetivo deste projeto é aplicar os conhecimentos
-    adquiridos durante as aulas, desenvolvendo uma aplicação
-    web capaz de cadastrar, visualizar, editar e excluir
-    conteúdos.
-</p>
+</section>
 
 
-<!-- Tecnologias utilizadas -->
-<h3>Tecnologias utilizadas</h3>
+<!-- Informações do projeto -->
+<section class="info-card">
 
-<ul>
-    <li>Python</li>
-    <li>Flask</li>
-    <li>SQLite</li>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-    <li>Jinja</li>
-</ul>
+    <h3>Sobre a aplicação</h3>
 
+    <p>
+        Este projeto foi desenvolvido como uma atividade prática
+        de desenvolvimento web utilizando Python e Flask.
+    </p>
 
-<!-- Funcionalidades do sistema -->
-<h3>Funcionalidades</h3>
+    <p>
+        A aplicação permite cadastrar, visualizar, editar e excluir
+        conteúdos através de uma interface integrada a um banco de
+        dados SQLite.
+    </p>
 
-<ul>
-    <li>Listagem de conteúdos cadastrados</li>
-    <li>Visualização individual de conteúdos</li>
-    <li>Cadastro de novos conteúdos</li>
-    <li>Edição de conteúdos</li>
-    <li>Exclusão lógica de conteúdos</li>
-</ul>
+    <hr>
 
 
-<!-- Informações da atividade -->
-<h3>Sobre a atividade</h3>
+    <h3>Tecnologias utilizadas</h3>
 
-<p>
-    A aplicação utiliza o framework Flask para gerenciar
-    as rotas e páginas do sistema e o SQLite para armazenar
-    os conteúdos cadastrados.
-</p>
+    <p>
+        <strong>Python:</strong>
+        linguagem utilizada no desenvolvimento da aplicação.
+    </p>
 
-<p>
-    As páginas HTML utilizam templates com Jinja,
-    permitindo a integração entre os dados processados
-    pelo Python e o conteúdo exibido no navegador.
-</p>
+    <p>
+        <strong>Flask:</strong>
+        framework utilizado para criação das rotas e páginas web.
+    </p>
+
+    <p>
+        <strong>SQLite:</strong>
+        banco de dados utilizado para armazenar os conteúdos.
+    </p>
+
+    <p>
+        <strong>HTML e CSS:</strong>
+        utilizados para estruturar e estilizar as páginas.
+    </p>
+
+    <p>
+        <strong>JavaScript:</strong>
+        utilizado para complementar as funcionalidades da interface.
+    </p>
+
+    <hr>
 
 
-<!-- Link para voltar -->
-<p>
-    <a href="{{ url_for('index') }}">
+    <h3>Funcionalidades</h3>
+
+    <p>
+        O sistema possui operações de cadastro, consulta,
+        edição e exclusão lógica de conteúdos.
+    </p>
+
+</section>
+
+
+<div class="form-actions">
+
+    <a
+        href="{{ url_for('index') }}"
+        class="btn-secondary"
+    >
         ← Voltar para o início
     </a>
-</p>
+
+</div>
 
 {% endblock %}

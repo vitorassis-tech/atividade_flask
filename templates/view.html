@@ -8,59 +8,83 @@
 
 {% block content %}
 
-<article>
+<!-- Cabeçalho da página -->
+<section class="page-header">
 
-    <h2>{{ content["c_title"] }}</h2>
+    <span class="page-label">
+        VISUALIZAÇÃO
+    </span>
+
+    <h2>Detalhes do conteúdo</h2>
+
+    <p>
+        Consulte as informações do conteúdo selecionado.
+    </p>
+
+</section>
+
+
+<!-- Conteúdo -->
+<article class="content-view">
+
+    <h2>
+        {{ content["c_title"] }}
+    </h2>
 
     <p>
         {{ content["c_text"] }}
     </p>
 
-    <p>
-        <small>
-            Código: {{ content["c_id"] }}
-            |
-            Criado em: {{ content["c_created_at"] }}
-        </small>
-    </p>
+    <hr>
+
+    <small>
+        Código: {{ content["c_id"] }}
+        |
+        Criado em: {{ content["c_created_at"] }}
+    </small>
 
 </article>
 
 
-<hr>
+<!-- Ações -->
+<div class="form-actions">
 
-
-<!-- Botão para editar o conteúdo -->
-
-<p>
-    <a href="{{ url_for('edit', c_id=content['c_id']) }}">
-        ✏️ Editar conteúdo
+    <!-- Editar -->
+    <a
+        href="{{ url_for('edit', c_id=content['c_id']) }}"
+        class="btn-primary"
+    >
+        ✏ Editar conteúdo
     </a>
-</p>
 
 
-<!-- Botão para excluir o conteúdo -->
-
-<form
-    action="{{ url_for('delete', c_id=content['c_id']) }}"
-    method="POST"
-    onsubmit="return confirm('Tem certeza que deseja excluir este conteúdo?');"
->
-
-    <button type="submit">
-        🗑️ Excluir conteúdo
-    </button>
-
-</form>
-
-
-<!-- Voltar para a página inicial -->
-
-<p>
-    <a href="{{ url_for('index') }}">
-        ← Voltar para o início
+    <!-- Voltar -->
+    <a
+        href="{{ url_for('index') }}"
+        class="btn-secondary"
+    >
+        ← Voltar
     </a>
-</p>
+
+
+    <!-- Excluir -->
+    <form
+        method="POST"
+        action="{{ url_for('delete', c_id=content['c_id']) }}"
+        class="delete-form"
+        onsubmit="return confirm('Tem certeza que deseja excluir este conteúdo?');"
+    >
+
+        <button
+            type="submit"
+            class="btn-danger"
+        >
+            🗑 Excluir conteúdo
+        </button>
+
+    </form>
+
+</div>
 
 
 {% endblock %}

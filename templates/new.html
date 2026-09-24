@@ -8,58 +8,82 @@ Novo conteúdo
 
 {% block content %}
 
-<h2>Cadastrar novo conteúdo</h2>
+<section class="page-header">
 
-<p>
-    Preencha os campos abaixo para adicionar um novo conteúdo.
-</p>
+    <span class="page-label">
+        CADASTRO
+    </span>
 
-
-<form method="POST">
-
-    <p>
-        <label for="title">
-            <strong>Título:</strong>
-        </label>
-        <br>
-
-        <input
-            type="text"
-            id="title"
-            name="title"
-            required
-        >
-    </p>
-
+    <h2>Novo conteúdo</h2>
 
     <p>
-        <label for="text">
-            <strong>Conteúdo:</strong>
-        </label>
-        <br>
-
-        <textarea
-            id="text"
-            name="text"
-            rows="6"
-            required
-        ></textarea>
+        Preencha as informações abaixo para adicionar
+        um novo conteúdo ao banco de dados.
     </p>
 
-
-    <p>
-        <button type="submit">
-            Cadastrar
-        </button>
-    </p>
-
-</form>
+</section>
 
 
-<p>
-    <a href="{{ url_for('index') }}">
-        ← Voltar para o início
-    </a>
-</p>
+<section class="form-card">
+
+    <form method="POST">
+
+        <div class="form-group">
+
+            <label for="title">
+                Título
+            </label>
+
+            <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Digite o título do conteúdo"
+                required
+            >
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="text">
+                Conteúdo
+            </label>
+
+            <textarea
+                id="text"
+                name="text"
+                rows="7"
+                placeholder="Digite o conteúdo aqui..."
+                required
+            ></textarea>
+
+        </div>
+
+
+        <div class="form-actions">
+
+            <button
+                type="submit"
+                class="btn-primary"
+            >
+                + Cadastrar conteúdo
+            </button>
+
+
+            <a
+                href="{{ url_for('index') }}"
+                class="btn-secondary"
+            >
+                Cancelar
+            </a>
+
+        </div>
+
+    </form>
+
+</section>
+
 
 {% endblock %}
