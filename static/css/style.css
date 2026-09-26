@@ -31,8 +31,7 @@ body {
 
     border-top: 4px solid #0ea5e9;
 
-    box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .header-container {
@@ -40,7 +39,6 @@ body {
     max-width: 1200px;
 
     margin: 0 auto;
-
     padding: 20px 30px;
 
     display: flex;
@@ -52,7 +50,7 @@ body {
 
 
 /* ==================================================
-   LOGO / NOME DO PROJETO
+   MARCA
 ================================================== */
 
 .brand a {
@@ -82,7 +80,7 @@ body {
 
 
 /* ==================================================
-   MENU DE NAVEGAÇÃO
+   MENU
 ================================================== */
 
 .menu {
@@ -104,9 +102,7 @@ body {
     font-size: 15px;
     font-weight: bold;
 
-    transition:
-        background-color 0.2s,
-        color 0.2s;
+    transition: 0.2s;
 }
 
 .menu a:hover {
@@ -159,13 +155,13 @@ h3 {
 
 
 /* ==================================================
-   BANNER DA PÁGINA INICIAL
+   BANNER
 ================================================== */
 
 .hero-banner {
     width: 100%;
 
-    margin-bottom: 35px;
+    margin-bottom: 38px;
 
     overflow: hidden;
 
@@ -188,29 +184,85 @@ h3 {
 
 
 /* ==================================================
-   ÁREA DE CONTEÚDOS
+   SEÇÃO DE CONTEÚDOS
 ================================================== */
 
-.conteudos > p {
+.content-section {
+    width: 100%;
+}
+
+.content-section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-bottom: 25px;
+}
+
+.content-section-header h2 {
+    margin: 2px 0 5px;
+
+    font-size: 27px;
+}
+
+.content-section-header p {
+    margin: 0;
+
     color: #64748b;
 }
 
 
 /* ==================================================
-   CARDS DOS CONTEÚDOS
+   LABEL DAS PÁGINAS
 ================================================== */
 
-.conteudo-card {
-    margin-top: 20px;
+.page-label {
+    display: inline-block;
 
-    padding: 22px;
+    margin-bottom: 7px;
 
-    background-color: #f8fafc;
+    color: #0284c7;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* ==================================================
+   GRID DOS CONTEÚDOS
+================================================== */
+
+.content-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* ==================================================
+   CARD DE CONTEÚDO
+================================================== */
+
+.content-card {
+    overflow: hidden;
+
+    background-color: white;
 
     border: 1px solid #e2e8f0;
-    border-left: 4px solid #0ea5e9;
 
-    border-radius: 9px;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 14px rgba(15, 23, 42, 0.06);
 
     transition:
         transform 0.2s,
@@ -218,31 +270,205 @@ h3 {
         border-color 0.2s;
 }
 
-.conteudo-card:hover {
-    transform: translateY(-2px);
+.content-card:hover {
+    transform: translateY(-5px);
 
-    border-color: #bae6fd;
+    border-color: #7dd3fc;
 
     box-shadow:
-        0 7px 18px rgba(15, 23, 42, 0.08);
+        0 12px 28px rgba(15, 23, 42, 0.12);
 }
 
-.conteudo-card h3 {
-    margin-top: 0;
+.content-card:focus {
+    outline: 3px solid rgba(14, 165, 233, 0.25);
+
+    outline-offset: 3px;
 }
 
-.conteudo-card h3 a {
+
+/* ==================================================
+   ÁREA VISUAL DOS CARDS
+================================================== */
+
+.content-card-visual {
+    height: 185px;
+
+    padding: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #075985,
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #082f49
+        );
+}
+
+.card-tech-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    text-align: center;
+}
+
+.code-icon {
+    color: #38bdf8;
+
+    font-size: 52px;
+    font-weight: bold;
+
+    letter-spacing: -4px;
+}
+
+.tech-symbol {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #0284c7;
+
+    color: white;
+
+    border: 2px solid #38bdf8;
+
+    border-radius: 18px;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 25px rgba(14, 165, 233, 0.25);
+}
+
+.database-icon {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #0284c7;
+
+    color: white;
+
+    border: 2px solid #38bdf8;
+
+    border-radius: 50%;
+
+    font-size: 38px;
+
+    box-shadow:
+        0 8px 25px rgba(14, 165, 233, 0.25);
+}
+
+.tech-name {
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* ==================================================
+   CORPO DOS CARDS
+================================================== */
+
+.content-card-body {
+    padding: 22px;
+}
+
+.content-card-body h3 {
+    margin: 0 0 10px;
+
+    font-size: 20px;
+}
+
+.content-card-text {
+    min-height: 78px;
+
+    margin: 0 0 18px;
+
+    color: #475569;
+
+    font-size: 15px;
+}
+
+
+/* ==================================================
+   LINK DO CARD
+================================================== */
+
+.main-container .content-card-link {
+    width: 100%;
+
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #eff6ff;
+
     color: #0369a1;
 
+    border-radius: 7px;
+
     text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition:
+        background-color 0.2s,
+        color 0.2s;
 }
 
-.conteudo-card h3 a:hover {
-    color: #0284c7;
+.main-container .content-card-link:hover {
+    background-color: #dbeafe;
+
+    color: #075985;
 }
 
-.conteudo-card small {
+.content-card-link span {
+    font-size: 20px;
+}
+
+
+/* ==================================================
+   INFORMAÇÕES DOS CARDS
+================================================== */
+
+.content-card-meta {
+    margin-top: 18px;
+
+    padding-top: 14px;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    border-top: 1px solid #e2e8f0;
+
     color: #64748b;
+
+    font-size: 12px;
 }
 
 
@@ -267,19 +493,6 @@ h3 {
 
 .page-header {
     margin-bottom: 25px;
-}
-
-.page-label {
-    display: inline-block;
-
-    margin-bottom: 7px;
-
-    color: #0284c7;
-
-    font-size: 12px;
-    font-weight: bold;
-
-    letter-spacing: 1.5px;
 }
 
 .page-header h2 {
@@ -321,7 +534,7 @@ h3 {
 
 
 /* ==================================================
-   GRUPOS DOS FORMULÁRIOS
+   FORMULÁRIOS
 ================================================== */
 
 .form-group {
@@ -338,15 +551,9 @@ h3 {
     font-weight: bold;
 }
 
-
-/* ==================================================
-   CAMPOS DOS FORMULÁRIOS
-================================================== */
-
 input[type="text"],
 textarea {
     width: 100%;
-    max-width: 750px;
 
     padding: 12px 14px;
 
@@ -369,11 +576,6 @@ textarea {
         box-shadow 0.2s;
 }
 
-.form-card input[type="text"],
-.form-card textarea {
-    max-width: none;
-}
-
 input[type="text"]:focus,
 textarea:focus {
     border-color: #0ea5e9;
@@ -390,40 +592,7 @@ textarea {
 
 
 /* ==================================================
-   BOTÕES GERAIS
-================================================== */
-
-button {
-    padding: 11px 18px;
-
-    background-color: #0369a1;
-
-    color: white;
-
-    border: none;
-
-    border-radius: 7px;
-
-    font-size: 15px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.2s,
-        transform 0.2s,
-        box-shadow 0.2s;
-}
-
-button:hover {
-    background-color: #075985;
-
-    transform: translateY(-1px);
-}
-
-
-/* ==================================================
-   ÁREA DOS BOTÕES / AÇÕES
+   AÇÕES
 ================================================== */
 
 .form-actions {
@@ -463,7 +632,8 @@ button:hover {
 
     transition:
         background-color 0.2s,
-        transform 0.2s;
+        transform 0.2s,
+        box-shadow 0.2s;
 }
 
 .main-container a.btn-primary {
@@ -472,6 +642,7 @@ button:hover {
     text-decoration: none;
 }
 
+.btn-primary:hover,
 .main-container a.btn-primary:hover {
     background-color: #075985;
 
@@ -503,11 +674,7 @@ button:hover {
     font-size: 15px;
     font-weight: bold;
 
-    transition:
-        background-color 0.2s,
-        color 0.2s,
-        border-color 0.2s,
-        transform 0.2s;
+    transition: 0.2s;
 }
 
 .main-container .btn-secondary:hover {
@@ -516,21 +683,17 @@ button:hover {
     color: #0f172a;
 
     border-color: #94a3b8;
-
-    transform: translateY(-1px);
 }
 
 
 /* ==================================================
-   BOTÃO DE EXCLUSÃO
+   BOTÕES
 ================================================== */
 
-.btn-danger {
-    display: inline-block;
-
+button {
     padding: 11px 18px;
 
-    background-color: #dc2626;
+    background-color: #0369a1;
 
     color: white;
 
@@ -543,21 +706,25 @@ button:hover {
 
     cursor: pointer;
 
-    transition:
-        background-color 0.2s,
-        transform 0.2s;
+    transition: 0.2s;
 }
 
-.btn-danger:hover {
-    background-color: #b91c1c;
-
-    transform: translateY(-1px);
+button:hover {
+    background-color: #075985;
 }
 
 
 /* ==================================================
-   FORMULÁRIO DE EXCLUSÃO
+   BOTÃO DE EXCLUSÃO
 ================================================== */
+
+.btn-danger {
+    background-color: #dc2626;
+}
+
+.btn-danger:hover {
+    background-color: #b91c1c;
+}
 
 .delete-form {
     margin: 0;
@@ -566,12 +733,8 @@ button:hover {
 
 
 /* ==================================================
-   VISUALIZAÇÃO DE UM CONTEÚDO
+   VISUALIZAÇÃO DE CONTEÚDO
 ================================================== */
-
-article {
-    line-height: 1.7;
-}
 
 .content-view {
     padding: 28px;
@@ -589,9 +752,6 @@ article {
 
 .content-view h2 {
     margin-top: 0;
-    margin-bottom: 15px;
-
-    color: #0f172a;
 }
 
 .content-view p {
@@ -604,7 +764,7 @@ article {
 
 
 /* ==================================================
-   CARD GENÉRICO PARA SOBRE / CONTATOS
+   CARD DE INFORMAÇÕES
 ================================================== */
 
 .info-card {
@@ -620,12 +780,40 @@ article {
         0 4px 12px rgba(15, 23, 42, 0.04);
 }
 
-.info-card p:first-child {
-    margin-top: 0;
+
+/* ==================================================
+   SEM CONTEÚDOS
+================================================== */
+
+.empty-content {
+    padding: 55px 25px;
+
+    background-color: #f8fafc;
+
+    border: 1px dashed #cbd5e1;
+
+    border-radius: 12px;
+
+    text-align: center;
 }
 
-.info-card p:last-child {
-    margin-bottom: 0;
+.empty-icon {
+    margin-bottom: 10px;
+
+    color: #0ea5e9;
+
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.empty-content h3 {
+    margin-bottom: 5px;
+}
+
+.empty-content p {
+    margin-bottom: 22px;
+
+    color: #64748b;
 }
 
 
@@ -677,7 +865,21 @@ hr {
 
 
 /* ==================================================
-   RESPONSIVIDADE - TABLET
+   TABLETS
+================================================== */
+
+@media (max-width: 900px) {
+
+    .content-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ==================================================
+   RESPONSIVIDADE
 ================================================== */
 
 @media (max-width: 768px) {
@@ -693,20 +895,10 @@ hr {
         gap: 15px;
     }
 
-    .brand-text {
-        font-size: 22px;
-    }
-
     .menu {
         width: 100%;
 
         flex-wrap: wrap;
-
-        gap: 5px;
-    }
-
-    .menu a {
-        padding: 8px 10px;
     }
 
     .main-container {
@@ -715,55 +907,32 @@ hr {
         margin: 20px auto;
 
         padding: 18px;
-
-        border-radius: 9px;
     }
 
-    .hero-banner {
-        margin-bottom: 25px;
-
-        border-radius: 8px;
+    .content-section-header {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
-    .banner-img {
-        border-radius: 8px;
+    .content-grid {
+        grid-template-columns: 1fr;
     }
 
-    .conteudo-card {
-        padding: 17px;
-    }
-
-    .form-card {
-        padding: 22px;
-    }
-
-    .content-view {
-        padding: 22px;
+    .content-card-text {
+        min-height: auto;
     }
 
 }
 
 
 /* ==================================================
-   RESPONSIVIDADE - CELULARES
+   CELULARES
 ================================================== */
 
 @media (max-width: 480px) {
 
-    .header-container {
-        padding: 15px;
-    }
-
-    .brand-icon {
-        font-size: 21px;
-    }
-
     .brand-text {
         font-size: 20px;
-    }
-
-    .menu {
-        gap: 3px;
     }
 
     .menu a {
@@ -782,23 +951,27 @@ hr {
         padding: 15px;
     }
 
-    h2 {
-        font-size: 22px;
+    .content-section-header h2 {
+        font-size: 23px;
     }
 
-    h3 {
-        font-size: 18px;
+    .content-card-visual {
+        height: 150px;
     }
 
-    .page-header h2 {
-        font-size: 24px;
+    .content-card-body {
+        padding: 18px;
     }
 
-    .conteudo-card {
-        padding: 15px;
+    .content-card-meta {
+        flex-direction: column;
+
+        gap: 3px;
     }
 
-    .form-card {
+    .form-card,
+    .content-view,
+    .info-card {
         padding: 18px;
     }
 
@@ -811,26 +984,12 @@ hr {
     .form-actions a,
     .delete-form {
         width: 100%;
-    }
 
-    .form-actions a {
         text-align: center;
     }
 
     .delete-form button {
         width: 100%;
-    }
-
-    button {
-        width: 100%;
-    }
-
-    .content-view {
-        padding: 18px;
-    }
-
-    .info-card {
-        padding: 18px;
     }
 
     .site-footer {

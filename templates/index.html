@@ -8,7 +8,10 @@ Início
 
 {% block content %}
 
-<!-- Banner principal do projeto -->
+<!-- ============================================
+     BANNER PRINCIPAL
+============================================= -->
+
 <section class="hero-banner">
 
     <img
@@ -20,45 +23,195 @@ Início
 </section>
 
 
-<!-- Área dos conteúdos -->
-<section class="conteudos">
+<!-- ============================================
+     CABEÇALHO DOS CONTEÚDOS
+============================================= -->
 
-    <h2>Conteúdos cadastrados</h2>
+<section class="content-section">
 
-    <p>
-        Abaixo estão os conteúdos armazenados no banco de dados SQLite.
-    </p>
+    <div class="content-section-header">
 
+        <div>
+
+            <span class="page-label">
+                CONTEÚDOS
+            </span>
+
+            <h2>
+                Conteúdos cadastrados
+            </h2>
+
+            <p>
+                Explore os conteúdos armazenados no banco de dados SQLite.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{{ url_for('new') }}"
+            class="btn-primary"
+        >
+            + Novo conteúdo
+        </a>
+
+    </div>
+
+
+    <!-- ========================================
+         GRID DOS CARDS
+    ========================================= -->
 
     {% if contents %}
 
-        {% for content in contents %}
+        <div class="content-grid">
 
-            <article class="conteudo-card">
+            {% for content in contents %}
 
-                <h3>
-                    <a href="{{ url_for('view', c_id=content['c_id']) }}">
-                        {{ content["c_title"] }}
-                    </a>
-                </h3>
+                <!-- Card inteiro clicável -->
+                <article
+                    class="content-card"
+                    onclick="window.location.href='{{ url_for('view', c_id=content['c_id']) }}'"
+                    tabindex="0"
+                    role="link"
+                    onkeydown="if(event.key === 'Enter'){window.location.href='{{ url_for('view', c_id=content['c_id']) }}'}"
+                >
 
-                <p>
-                    {{ content["c_text"] }}
-                </p>
+                    <!-- Área visual -->
+                    <div class="content-card-visual">
 
-                <small>
-                    Código: {{ content["c_id"] }}
-                    |
-                    Criado em: {{ content["c_created_at"] }}
-                </small>
+                        {% set titulo = content["c_title"]|lower %}
 
-            </article>
 
-        {% endfor %}
+                        {% if "flask" in titulo %}
+
+                            <div class="card-tech-icon">
+                                <span class="tech-symbol">
+                                    Py
+                                </span>
+
+                                <span class="tech-name">
+                                    Flask
+                                </span>
+                            </div>
+
+
+                        {% elif "sqlite" in titulo or "banco" in titulo %}
+
+                            <div class="card-tech-icon">
+
+                                <span class="database-icon">
+                                    ◉
+                                </span>
+
+                                <span class="tech-name">
+                                    SQLite
+                                </span>
+
+                            </div>
+
+
+                        {% else %}
+
+                            <div class="card-tech-icon">
+
+                                <span class="code-icon">
+                                    &lt;/&gt;
+                                </span>
+
+                                <span class="tech-name">
+                                    Desenvolvimento Web
+                                </span>
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- Corpo do card -->
+                    <div class="content-card-body">
+
+                        <h3>
+                            {{ content["c_title"] }}
+                        </h3>
+
+
+                        <p class="content-card-text">
+
+                            {% if content["c_text"]|length > 120 %}
+
+                                {{ content["c_text"][:120] }}...
+
+                            {% else %}
+
+                                {{ content["c_text"] }}
+
+                            {% endif %}
+
+                        </p>
+
+
+                        <!-- Link -->
+                        <a
+                            href="{{ url_for('view', c_id=content['c_id']) }}"
+                            class="content-card-link"
+                            onclick="event.stopPropagation();"
+                        >
+                            Ver conteúdo
+                            <span>→</span>
+                        </a>
+
+
+                        <!-- Informações -->
+                        <div class="content-card-meta">
+
+                            <span>
+                                Código: {{ content["c_id"] }}
+                            </span>
+
+                            <span>
+                                Criado em:
+                                {{ content["c_created_at"] }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            {% endfor %}
+
+        </div>
+
 
     {% else %}
 
-        <p>Nenhum conteúdo encontrado.</p>
+        <!-- Caso não existam conteúdos -->
+        <div class="empty-content">
+
+            <div class="empty-icon">
+                &lt;/&gt;
+            </div>
+
+            <h3>
+                Nenhum conteúdo cadastrado
+            </h3>
+
+            <p>
+                Cadastre o primeiro conteúdo para começar.
+            </p>
+
+            <a
+                href="{{ url_for('new') }}"
+                class="btn-primary"
+            >
+                + Cadastrar conteúdo
+            </a>
+
+        </div>
 
     {% endif %}
 
