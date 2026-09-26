@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- ============================================
+         CONFIGURAÇÕES DA PÁGINA
+    ============================================= -->
+
     <meta charset="UTF-8">
 
     <meta
@@ -15,11 +19,31 @@
         content="Projeto desenvolvido com Python, Flask e SQLite."
     >
 
+
+    <!-- ============================================
+         TÍTULO DA PÁGINA
+    ============================================= -->
+
     <title>
         {% block title %}{% endblock %} | Projeto Flask
     </title>
 
-    <!-- CSS principal -->
+
+    <!-- ============================================
+         FAVICON
+    ============================================= -->
+
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="{{ url_for('static', filename='img/favicon.svg') }}"
+    >
+
+
+    <!-- ============================================
+         CSS PRINCIPAL
+    ============================================= -->
+
     <link
         rel="stylesheet"
         href="{{ url_for('static', filename='css/style.css') }}"
@@ -38,20 +62,28 @@
 
         <div class="header-container">
 
+            <!-- Logo / Nome do projeto -->
+
             <div class="brand">
 
                 <a href="{{ url_for('index') }}">
-                    <span class="brand-icon">&lt;/&gt;</span>
+
+                    <span class="brand-icon">
+                        &lt;/&gt;
+                    </span>
 
                     <span class="brand-text">
                         Projeto Flask
                     </span>
+
                 </a>
 
             </div>
 
 
-            <!-- Menu principal -->
+            <!-- ====================================
+                 MENU PRINCIPAL
+            ===================================== -->
 
             <nav class="menu">
 
@@ -85,6 +117,7 @@
     <main class="main-container">
 
         {% block content %}
+
         {% endblock %}
 
     </main>
@@ -114,7 +147,9 @@
     </footer>
 
 
-    <!-- JavaScript principal -->
+    <!-- ============================================
+         JAVASCRIPT PRINCIPAL
+    ============================================= -->
 
     <script
         src="{{ url_for('static', filename='js/script.js') }}">
